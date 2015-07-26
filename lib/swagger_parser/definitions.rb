@@ -1,22 +1,13 @@
+require "swagger_parser/enumerable_object"
 require "swagger_parser/schema"
-require "swagger_parser/source_based_object"
 
 module SwaggerParser
-  class Definitions < SourceBasedObject
-    include Enumerable
+  class Definitions < EnumerableObject
+    private
 
-    # @note Implementation for Enumerable
-    def each(&block)
-      source.each do |key, value|
-        block.call([key, SwaggerParser::Schema.new(value)])
-      end
-    end
-
-    # @param [String]
-    # @return [SwaggerParser::Schema, nil]
-    def [](key)
-      value = source[key]
-      SwaggerParser::Schema.new(value) if value
+    # @note Implementation for SwaggerParser::EnumerableObject
+    def element_class
+      SwaggerParser::Schema
     end
   end
 end

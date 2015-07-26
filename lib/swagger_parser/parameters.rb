@@ -1,6 +1,13 @@
-require "swagger_parser/source_based_object"
+require "swagger_parser/enumerable_object"
+require "swagger_parser/parameter"
 
 module SwaggerParser
-  class Parameters < SourceBasedObject
+  class Parameters < EnumerableObject
+    private
+
+    # @note Implementation for SwaggerParser::EnumerableObject
+    def element_class
+      SwaggerParser::Parameter
+    end
   end
 end
