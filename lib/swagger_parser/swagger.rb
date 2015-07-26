@@ -31,9 +31,11 @@ module SwaggerParser
       @__errors ||= []
     end
 
-    # @return [SwaggerParser::ExternalDocumentation]
+    # @return [SwaggerParser::ExternalDocumentation, nil]
     def external_docs
-      SwaggerParser::ExternalDocumentation.new(source["externalDocs"])
+      if source["external_docs"]
+        SwaggerParser::ExternalDocumentation.new(source["external_docs"])
+      end
     end
 
     # @return [Object]
@@ -81,16 +83,16 @@ module SwaggerParser
       SwaggerParser::SecurityDefinitions.new(source["security_definitions"])
     end
 
+    # @return [Object]
+    def swagger
+      source["swagger"]
+    end
+
     # @return [Array<SwaggerParser::Tag>]
     def tags
       (source["tags"] || []).map do |element|
         SwaggerParser::Tag.new(element)
       end
-    end
-
-    # @return [Object]
-    def swagger
-      source["swagger"]
     end
 
     # @return [false, true]

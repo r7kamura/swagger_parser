@@ -14,9 +14,11 @@ module SwaggerParser
       source["example"]
     end
 
-    # @return [Object]
+    # @return [SwaggerParser::ExternalDocumentation, nil]
     def external_docs
-      SwaggerParser::ExternalDocumentation.new(source["externalDocs"])
+      if source["external_docs"]
+        SwaggerParser::ExternalDocumentation.new(source["external_docs"])
+      end
     end
 
     # @return [false, true]

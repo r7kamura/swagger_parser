@@ -36,7 +36,7 @@ RSpec.describe SwaggerParser::Schema do
       schema.external_docs
     end
 
-    it { is_expected.to be_a SwaggerParser::ExternalDocumentation }
+    it { is_expected.to be_nil }
   end
 
   describe "#read_only" do
