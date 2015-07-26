@@ -1,8 +1,6 @@
+require "swagger_parser/source_based_object"
+
 module SwaggerParser
-  class Contact
-    # @param [Object] source
-    def initialize(source)
-      @source = source
-    end
+  class Contact < SourceBasedObject
   end
 end

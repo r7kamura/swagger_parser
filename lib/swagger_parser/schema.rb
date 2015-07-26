@@ -1,12 +1,8 @@
 require "swagger_parser/info"
+require "swagger_parser/source_based_object"
 
 module SwaggerParser
-  class Schema
-    # @param [Hash] source
-    def initialize(source)
-      @source = source
-    end
-
+  class Schema < SourceBasedObject
     # @return [Array<SwaggerParser::Error>]
     def errors
       @__errors ||= []
@@ -14,12 +10,12 @@ module SwaggerParser
 
     # @return [SwaggerParser::Info]
     def info
-      SwaggerParser::Info.new(@source["info"])
+      SwaggerParser::Info.new(source["info"])
     end
 
     # @return [Object]
     def swagger
-      @source["swagger"]
+      source["swagger"]
     end
 
     # @return [false, true]
@@ -38,7 +34,7 @@ module SwaggerParser
 
     # @return [false, true]
     def has_hash_source?
-      @source.is_a?(Hash)
+      source.is_a?(Hash)
     end
   end
 end

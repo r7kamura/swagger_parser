@@ -1,8 +1,6 @@
+require "swagger_parser/source_based_object"
+
 module SwaggerParser
-  class License
-    # @param [Object] source
-    def initialize(source)
-      @source = source
-    end
+  class License < SourceBasedObject
   end
 end

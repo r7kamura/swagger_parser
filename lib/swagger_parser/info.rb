@@ -1,41 +1,37 @@
 require "swagger_parser/contact"
 require "swagger_parser/license"
+require "swagger_parser/source_based_object"
 
 module SwaggerParser
-  class Info
-    # @param [Object] source
-    def initialize(source)
-      @source = source
-    end
-
+  class Info < SourceBasedObject
     # @return [Object]
     def contact
-      SwaggerParser::Contact.new(@source["contact"])
+      SwaggerParser::Contact.new(source["contact"])
     end
 
     # @return [Object]
     def description
-      @source["description"]
+      source["description"]
     end
 
     # @return [Object]
     def license
-      SwaggerParser::License.new(@source["license"])
+      SwaggerParser::License.new(source["license"])
     end
 
     # @return [Object]
     def terms_of_service
-      @source["termsOfService"]
+      source["termsOfService"]
     end
 
     # @return [Object]
     def title
-      @source["title"]
+      source["title"]
     end
 
     # @return [Object]
     def version
-      @source["version"]
+      source["version"]
     end
   end
 end
