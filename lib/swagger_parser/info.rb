@@ -1,9 +1,12 @@
 require "swagger_parser/contact"
+require "swagger_parser/extendable"
 require "swagger_parser/license"
 require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class Info < SourceBasedObject
+    include SwaggerParser::Extendable
+
     # @return [Object]
     def contact
       SwaggerParser::Contact.new(source["contact"])

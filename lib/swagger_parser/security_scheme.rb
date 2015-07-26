@@ -1,8 +1,11 @@
+require "swagger_parser/extendable"
 require "swagger_parser/scopes"
 require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class SecurityScheme < SourceBasedObject
+    include SwaggerParser::Extendable
+
     # @return [Object]
     def authorization_url
       source["authorizationUrl"]

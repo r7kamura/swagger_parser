@@ -1,3 +1,4 @@
+require "swagger_parser/extendable"
 require "swagger_parser/external_docs_attributable"
 require "swagger_parser/responses"
 require "swagger_parser/security"
@@ -5,6 +6,7 @@ require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class Operation < SourceBasedObject
+    include SwaggerParser::Extendable
     include SwaggerParser::ExternalDocsAttributable
 
     # @return [Object]

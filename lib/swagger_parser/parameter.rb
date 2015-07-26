@@ -1,8 +1,11 @@
-require "swagger_parser/item"
+require "swagger_parser/extendable"
+require "swagger_parser/items"
 require "swagger_parser/json_schema"
 
 module SwaggerParser
   class Parameter < JsonSchema
+    include SwaggerParser::Extendable
+
     # @return [Object]
     def allow_empty_value
       source["allowEmptyValue"]
@@ -23,13 +26,10 @@ module SwaggerParser
       source["in"]
     end
 
-    # @return [Array<SwaggerParser::Item>, nil]
+    # @return [Array<SwaggerParser::Items>, nil]
     def items
-      value = source["items"]
-      if value.respond_to?(:map)
-        value.map do |element|
-          SwaggerParser::Item.new(element)
-        end
+      if source["items"]
+        SwaggerParser::Item.new(source["items"])
       end
     end
 

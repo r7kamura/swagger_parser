@@ -1,9 +1,11 @@
+require "swagger_parser/extendable"
 require "swagger_parser/operation"
 require "swagger_parser/referable"
 require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class Path < SourceBasedObject
+    include SwaggerParser::Extendable
     include SwaggerParser::Referable
 
     # @return [SwaggerParser::Operation, nil]
