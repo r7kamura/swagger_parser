@@ -2,9 +2,9 @@ require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class Xml < SourceBasedObject
-    # @return [Object]
+    # @return [false, true]
     def attribute
-      source["attribute"]
+      !!source["attribute"]
     end
 
     # @return [Object]
@@ -22,9 +22,9 @@ module SwaggerParser
       source["prefix"]
     end
 
-    # @return [Object]
+    # @return [false, true]
     def wrapped
-      source["wrapped"]
+      !!source["wrapped"]
     end
   end
 end

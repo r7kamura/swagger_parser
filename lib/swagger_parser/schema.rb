@@ -1,9 +1,9 @@
 require "swagger_parser/external_documentation"
-require "swagger_parser/source_based_object"
+require "swagger_parser/json_schema"
 require "swagger_parser/xml"
 
 module SwaggerParser
-  class Schema < SourceBasedObject
+  class Schema < JsonSchema
     # @return [Object]
     def discriminator
       source["discriminator"]
@@ -19,9 +19,9 @@ module SwaggerParser
       SwaggerParser::ExternalDocumentation.new(source["externalDocs"])
     end
 
-    # @return [Object]
+    # @return [false, true]
     def read_only
-      source["readOnly"]
+      !!source["readOnly"]
     end
 
     # @return [Object]

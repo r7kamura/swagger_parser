@@ -24,7 +24,7 @@ RSpec.describe SwaggerParser::Xml do
       xml.attribute
     end
 
-    it { is_expected.to be_nil }
+    it { is_expected.to be false }
   end
 
   describe "#name" do
@@ -56,6 +56,6 @@ RSpec.describe SwaggerParser::Xml do
       xml.wrapped
     end
 
-    it { is_expected.to be_nil }
+    it { is_expected.to be false }
   end
 end
