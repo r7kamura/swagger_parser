@@ -23,7 +23,7 @@ module SwaggerParser
 
     # @return [SwaggerParser::Definitions]
     def definitions
-      SwaggerParser::Definitions.new(source["definitions"])
+      SwaggerParser::Definitions.new(source["definitions"] || {})
     end
 
     # @return [Array<SwaggerParser::Error>]
@@ -48,12 +48,12 @@ module SwaggerParser
       SwaggerParser::Info.new(source["info"])
     end
 
-    # @return [Object]
+    # @return [SwaggerParser::Parameters]
     def parameters
-      SwaggerParser::Parameters.new(source["parameters"])
+      SwaggerParser::Parameters.new(source["parameters"] || {})
     end
 
-    # @return [Object]
+    # @return [SwaggerParser::Paths]
     def paths
       SwaggerParser::Paths.new(source["paths"])
     end
@@ -63,9 +63,9 @@ module SwaggerParser
       source["produces"]
     end
 
-    # @return [Object]
+    # @return [SwaggerParser::Responses]
     def responses
-      SwaggerParser::Responses.new(source["responses"])
+      SwaggerParser::Responses.new(source["responses"] || {})
     end
 
     # @return [Object]
@@ -73,14 +73,14 @@ module SwaggerParser
       source["schemes"]
     end
 
-    # @return [Object]
+    # @return [SwaggerParser::Security]
     def security
-      SwaggerParser::Security.new(source["security"])
+      SwaggerParser::Security.new(source["security"] || {})
     end
 
-    # @return [Object]
+    # @return [SwaggerParser::SecurityDefinitions]
     def security_definitions
-      SwaggerParser::SecurityDefinitions.new(source["securityDefinitions"])
+      SwaggerParser::SecurityDefinitions.new(source["securityDefinitions"] || {})
     end
 
     # @return [Object]

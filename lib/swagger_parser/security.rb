@@ -1,6 +1,12 @@
-require "swagger_parser/source_based_object"
+require "swagger_parser/enumerable_object"
 
 module SwaggerParser
-  class Security < SourceBasedObject
+  class Security < EnumerableObject
+    private
+
+    # @note Implementation for SwaggerParser::EnumerableObject
+    def build_element(value)
+      value
+    end
   end
 end
