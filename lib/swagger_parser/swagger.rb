@@ -10,7 +10,7 @@ require "swagger_parser/source_based_object"
 require "swagger_parser/tag"
 
 module SwaggerParser
-  class Schema < SourceBasedObject
+  class Swagger < SourceBasedObject
     # @return [Object]
     def base_path
       source["basePath"]
@@ -103,7 +103,7 @@ module SwaggerParser
 
     def collect_errors
       unless has_hash_source?
-        errors |= SwaggerParser::Error.new("Schema source is not a Hash")
+        errors |= SwaggerParser::Error.new("Swagger source is not a Hash")
       end
     end
 

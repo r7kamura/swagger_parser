@@ -1,18 +1,18 @@
 RSpec.describe SwaggerParser::License do
-  let(:example_schema_path) do
+  let(:example_swagger_path) do
     "examples/swagger.yml"
   end
 
   let(:info) do
-    schema.info
+    swagger.info
   end
 
   let(:license) do
     info.license
   end
 
-  let(:schema) do
-    SwaggerParser::FileParser.parse(example_schema_path)
+  let(:swagger) do
+    SwaggerParser::FileParser.parse(example_swagger_path)
   end
 
   describe "#name" do

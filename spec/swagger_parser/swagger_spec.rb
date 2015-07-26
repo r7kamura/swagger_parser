@@ -1,15 +1,15 @@
-RSpec.describe SwaggerParser::Schema do
-  let(:example_schema_path) do
+RSpec.describe SwaggerParser::Swagger do
+  let(:example_swagger_path) do
     "examples/swagger.yml"
   end
 
-  let(:schema) do
-    SwaggerParser::FileParser.parse(example_schema_path)
+  let(:swagger) do
+    SwaggerParser::FileParser.parse(example_swagger_path)
   end
 
   describe "#base_path" do
     subject do
-      schema.base_path
+      swagger.base_path
     end
 
     it { is_expected.to be_a String }
@@ -17,7 +17,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#consumes" do
     subject do
-      schema.consumes
+      swagger.consumes
     end
 
     it { is_expected.to be_nil }
@@ -25,7 +25,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#definitions" do
     subject do
-      schema.definitions
+      swagger.definitions
     end
 
     it { is_expected.to be_a SwaggerParser::Definitions }
@@ -33,7 +33,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#external_docs" do
     subject do
-      schema.external_docs
+      swagger.external_docs
     end
 
     it { is_expected.to be_a SwaggerParser::ExternalDocumentation }
@@ -41,7 +41,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#host" do
     subject do
-      schema.host
+      swagger.host
     end
 
     it { is_expected.to be_a String }
@@ -49,7 +49,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#info" do
     subject do
-      schema.info
+      swagger.info
     end
 
     it { is_expected.to be_a SwaggerParser::Info }
@@ -57,7 +57,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#parameters" do
     subject do
-      schema.parameters
+      swagger.parameters
     end
 
     it { is_expected.to be_a SwaggerParser::Parameters }
@@ -65,7 +65,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#paths" do
     subject do
-      schema.paths
+      swagger.paths
     end
 
     it { is_expected.to be_a SwaggerParser::Paths }
@@ -73,7 +73,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#produces" do
     subject do
-      schema.produces
+      swagger.produces
     end
 
     it { is_expected.to be_nil }
@@ -81,7 +81,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#responses" do
     subject do
-      schema.responses
+      swagger.responses
     end
 
     it { is_expected.to be_a SwaggerParser::Responses }
@@ -89,7 +89,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#schemes" do
     subject do
-      schema.schemes
+      swagger.schemes
     end
 
     it { is_expected.to be_a Array }
@@ -97,7 +97,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#security" do
     subject do
-      schema.security
+      swagger.security
     end
 
     it { is_expected.to be_a SwaggerParser::Security }
@@ -105,7 +105,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#security_definitions" do
     subject do
-      schema.security_definitions
+      swagger.security_definitions
     end
 
     it { is_expected.to be_a SwaggerParser::SecurityDefinitions }
@@ -113,7 +113,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#swagger" do
     subject do
-      schema.swagger
+      swagger.swagger
     end
 
     it { is_expected.to be_a String }
@@ -121,7 +121,7 @@ RSpec.describe SwaggerParser::Schema do
 
   describe "#tags" do
     subject do
-      schema.tags
+      swagger.tags
     end
 
     it { is_expected.to be_a Array }

@@ -1,6 +1,6 @@
 require "json"
 require "swagger_parser/errors/file_parsing_error"
-require "swagger_parser/schema"
+require "swagger_parser/swagger"
 require "yaml"
 
 module SwaggerParser
@@ -9,7 +9,7 @@ module SwaggerParser
 
     class << self
       # @param [String] path
-      # @return [SwaggerParser::Schema]
+      # @return [SwaggerParser::Swagger]
       def parse(path)
         new(path).parse
       end
@@ -20,10 +20,10 @@ module SwaggerParser
       @path = path
     end
 
-    # @return [SwaggerParser::Schema]
+    # @return [SwaggerParser::Swagger]
     # @raise [SwaggerParser::Errors::FileParsingError]
     def parse
-      SwaggerParser::Schema.new(parse_file)
+      SwaggerParser::Swagger.new(parse_file)
     end
 
     private

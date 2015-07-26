@@ -5,6 +5,7 @@
 ```rb
 require "swagger_parser"
 
-schema = SwaggerParser::FileParser.parse("examples/swagger.yml")
-schema.swagger #=> "2.0"
+swagger = SwaggerParser::FileParser.parse("examples/swagger.yml")
+swagger.base_path #=> "/v2"
+swagger.host #=> "petstore.swagger.io"
 ```
