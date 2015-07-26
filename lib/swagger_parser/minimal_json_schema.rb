@@ -74,11 +74,6 @@ module SwaggerParser
     end
 
     # @return [Object]
-    def ref
-      source["$ref"]
-    end
-
-    # @return [Object]
     def title
       source["title"]
     end

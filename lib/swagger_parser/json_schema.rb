@@ -1,7 +1,10 @@
 require "swagger_parser/minimal_json_schema"
+require "swagger_parser/referable"
 
 module SwaggerParser
   class JsonSchema < MinimalJsonSchema
+    include SwaggerParser::Referable
+
     # @return [Object]
     def max_properties
       source["maxProperties"]
@@ -10,11 +13,6 @@ module SwaggerParser
     # @return [Object]
     def min_properties
       source["minProperties"]
-    end
-
-    # @return [Object]
-    def ref
-      source["$ref"]
     end
 
     # @return [Object]

@@ -1,8 +1,11 @@
 require "swagger_parser/operation"
+require "swagger_parser/referable"
 require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class Path < SourceBasedObject
+    include SwaggerParser::Referable
+
     # @return [SwaggerParser::Operation, nil]
     def delete
       if source["delete"]
@@ -55,11 +58,6 @@ module SwaggerParser
       if source["put"]
         SwaggerParser::Operation.new(source["put"])
       end
-    end
-
-    # @return [Object]
-    def ref
-      source["ref"]
     end
   end
 end

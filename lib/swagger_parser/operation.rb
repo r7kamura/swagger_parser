@@ -1,4 +1,6 @@
 require "swagger_parser/external_docs_attributable"
+require "swagger_parser/responses"
+require "swagger_parser/security"
 require "swagger_parser/source_based_object"
 
 module SwaggerParser
@@ -10,9 +12,9 @@ module SwaggerParser
       source["consumes"] || []
     end
 
-    # @return [Object]
+    # @return [false, true]
     def deprecated
-      source["deprecated"]
+      !!source["deprecated"]
     end
 
     # @return [Object]
@@ -37,7 +39,7 @@ module SwaggerParser
 
     # @return [SwaggerParser::Responses]
     def responses
-      # TODO
+      SwaggerParser::Responses.new(source["responses"] || {})
     end
 
     # @return [Object]
@@ -47,7 +49,7 @@ module SwaggerParser
 
     # @return [Object]
     def security
-      source["security"]
+      SwaggerParser::Security.new(source["security"] || {})
     end
 
     # @return [Object]
