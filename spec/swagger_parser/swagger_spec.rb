@@ -84,7 +84,7 @@ RSpec.describe SwaggerParser::Swagger do
       swagger.responses
     end
 
-    it { is_expected.to be_a SwaggerParser::Responses }
+    it { is_expected.to be_a SwaggerParser::ResponseDefinitions }
   end
 
   describe "#schemes" do

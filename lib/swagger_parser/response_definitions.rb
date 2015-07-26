@@ -2,7 +2,7 @@ require "swagger_parser/enumerable_object"
 require "swagger_parser/response"
 
 module SwaggerParser
-  class Responses < EnumerableObject
+  class ResponseDefinitions < EnumerableObject
     private
 
     # @note Implementation for SwaggerParser::EnumerableObject

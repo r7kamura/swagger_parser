@@ -3,7 +3,7 @@ require "swagger_parser/external_docs_attributable"
 require "swagger_parser/info"
 require "swagger_parser/parameters"
 require "swagger_parser/paths"
-require "swagger_parser/responses"
+require "swagger_parser/response_definitions"
 require "swagger_parser/security"
 require "swagger_parser/security_definitions"
 require "swagger_parser/source_based_object"
@@ -58,9 +58,9 @@ module SwaggerParser
       source["produces"] || []
     end
 
-    # @return [SwaggerParser::Responses]
+    # @return [SwaggerParser::ResponseDefinitions]
     def responses
-      SwaggerParser::Responses.new(source["responses"] || {})
+      SwaggerParser::ResponseDefinitions.new(source["responses"] || {})
     end
 
     # @return [Object]
