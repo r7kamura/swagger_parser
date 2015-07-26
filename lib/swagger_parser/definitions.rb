@@ -1,6 +1,5 @@
 require "swagger_parser/schema"
 require "swagger_parser/source_based_object"
-require "swagger_parser/swagger"
 
 module SwaggerParser
   class Definitions < SourceBasedObject
