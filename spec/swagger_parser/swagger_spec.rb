@@ -100,7 +100,7 @@ RSpec.describe SwaggerParser::Swagger do
       swagger.security
     end
 
-    it { is_expected.to be_a SwaggerParser::Security }
+    it { is_expected.to be_nil }
   end
 
   describe "#security_definitions" do

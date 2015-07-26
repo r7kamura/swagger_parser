@@ -4,7 +4,6 @@ require "swagger_parser/info"
 require "swagger_parser/parameters"
 require "swagger_parser/paths"
 require "swagger_parser/responses"
-require "swagger_parser/security"
 require "swagger_parser/security_definitions"
 require "swagger_parser/source_based_object"
 require "swagger_parser/tag"
@@ -75,7 +74,7 @@ module SwaggerParser
 
     # @return [Object]
     def security
-      SwaggerParser::Security.new(source["security"])
+      source["security"]
     end
 
     # @return [Object]
