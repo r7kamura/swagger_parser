@@ -1,4 +1,4 @@
-RSpec.describe SwaggerParser::Parser do
+RSpec.describe SwaggerParser::FileParser do
   describe ".parse" do
     subject do
       described_class.parse(path)

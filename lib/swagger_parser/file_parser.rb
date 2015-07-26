@@ -4,7 +4,7 @@ require "swagger_parser/schema"
 require "yaml"
 
 module SwaggerParser
-  class Parser
+  class FileParser
     YAML_EXTNAMES = %w(.yaml .yml)
 
     class << self

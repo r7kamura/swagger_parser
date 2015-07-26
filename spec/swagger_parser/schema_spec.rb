@@ -4,7 +4,7 @@ RSpec.describe SwaggerParser::Schema do
   end
 
   let(:schema) do
-    SwaggerParser::Parser.parse(example_schema_path)
+    SwaggerParser::FileParser.parse(example_schema_path)
   end
 
   describe "#info" do
