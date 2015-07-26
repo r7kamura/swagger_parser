@@ -20,7 +20,7 @@ RSpec.describe SwaggerParser::Swagger do
       swagger.consumes
     end
 
-    it { is_expected.to be_nil }
+    it { is_expected.to be_a Array }
   end
 
   describe "#definitions" do
@@ -76,7 +76,7 @@ RSpec.describe SwaggerParser::Swagger do
       swagger.produces
     end
 
-    it { is_expected.to be_nil }
+    it { is_expected.to be_a Array }
   end
 
   describe "#responses" do

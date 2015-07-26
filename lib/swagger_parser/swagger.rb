@@ -1,5 +1,5 @@
 require "swagger_parser/definitions"
-require "swagger_parser/external_documentation"
+require "swagger_parser/external_docs_attributable"
 require "swagger_parser/info"
 require "swagger_parser/parameters"
 require "swagger_parser/paths"
@@ -11,6 +11,8 @@ require "swagger_parser/tag"
 
 module SwaggerParser
   class Swagger < SourceBasedObject
+    include SwaggerParser::ExternalDocsAttributable
+
     # @return [Object]
     def base_path
       source["basePath"]
@@ -18,7 +20,7 @@ module SwaggerParser
 
     # @return [Object]
     def consumes
-      source["consumes"]
+      source["consumes"] || []
     end
 
     # @return [SwaggerParser::Definitions]
@@ -29,13 +31,6 @@ module SwaggerParser
     # @return [Array<SwaggerParser::Error>]
     def errors
       @__errors ||= []
-    end
-
-    # @return [SwaggerParser::ExternalDocumentation, nil]
-    def external_docs
-      if source["external_docs"]
-        SwaggerParser::ExternalDocumentation.new(source["external_docs"])
-      end
     end
 
     # @return [Object]
@@ -60,7 +55,7 @@ module SwaggerParser
 
     # @return [Object]
     def produces
-      source["produces"]
+      source["produces"] || []
     end
 
     # @return [SwaggerParser::Responses]

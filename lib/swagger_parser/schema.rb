@@ -1,9 +1,11 @@
-require "swagger_parser/external_documentation"
+require "swagger_parser/external_docs_attributable"
 require "swagger_parser/json_schema"
 require "swagger_parser/xml"
 
 module SwaggerParser
   class Schema < JsonSchema
+    include SwaggerParser::ExternalDocsAttributable
+
     # @return [Object]
     def discriminator
       source["discriminator"]
@@ -12,13 +14,6 @@ module SwaggerParser
     # @return [Object]
     def example
       source["example"]
-    end
-
-    # @return [SwaggerParser::ExternalDocumentation, nil]
-    def external_docs
-      if source["external_docs"]
-        SwaggerParser::ExternalDocumentation.new(source["external_docs"])
-      end
     end
 
     # @return [false, true]

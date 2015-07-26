@@ -1,17 +1,13 @@
+require "swagger_parser/external_docs_attributable"
 require "swagger_parser/source_based_object"
 
 module SwaggerParser
   class Tag < SourceBasedObject
+    include SwaggerParser::ExternalDocsAttributable
+
     # @return [Object]
     def description
       source["description"]
-    end
-
-    # @return [SwaggerParser::ExternalDocumentation, nil]
-    def external_docs
-      if source["external_docs"]
-        SwaggerParser::ExternalDocumentation.new(source["external_docs"])
-      end
     end
 
     # @return [Object]
