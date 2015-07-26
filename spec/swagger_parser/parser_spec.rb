@@ -13,7 +13,7 @@ RSpec.describe SwaggerParser::Parser do
         "examples/swagger.yml"
       end
 
-      it { is_expected.to be_a Hash }
+      it { is_expected.to be_a SwaggerParser::Schema }
     end
 
     context "with JSON" do
@@ -21,7 +21,7 @@ RSpec.describe SwaggerParser::Parser do
         "examples/swagger.json"
       end
 
-      it { is_expected.to be_a Hash }
+      it { is_expected.to be_a SwaggerParser::Schema }
     end
   end
 end
