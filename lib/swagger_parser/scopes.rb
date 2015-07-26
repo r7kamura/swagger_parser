@@ -1,13 +1,12 @@
 require "swagger_parser/enumerable_object"
-require "swagger_parser/security_scheme"
 
 module SwaggerParser
-  class SecurityDefinitions < EnumerableObject
+  class Scopes < EnumerableObject
     private
 
     # @note Implementation for SwaggerParser::EnumerableObject
     def build_element(value)
-      SwaggerParser::SecurityScheme.new(value)
+      value
     end
   end
 end

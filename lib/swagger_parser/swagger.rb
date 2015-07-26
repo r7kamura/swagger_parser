@@ -79,7 +79,7 @@ module SwaggerParser
 
     # @return [Object]
     def security_definitions
-      SwaggerParser::SecurityDefinitions.new(source["security_definitions"])
+      SwaggerParser::SecurityDefinitions.new(source["securityDefinitions"])
     end
 
     # @return [Object]

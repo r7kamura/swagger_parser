@@ -6,8 +6,8 @@ module SwaggerParser
     private
 
     # @note Implementation for SwaggerParser::EnumerableObject
-    def element_class
-      SwaggerParser::Schema
+    def build_element(value)
+      SwaggerParser::Schema.new(value)
     end
   end
 end

@@ -7,7 +7,7 @@ module SwaggerParser
     # @note Implementation for Enumerable
     def each(&block)
       source.each do |key, value|
-        block.call([key, element_class.new(value)])
+        block.call([key, build_element(value)])
       end
     end
 
@@ -15,14 +15,15 @@ module SwaggerParser
     # @return [SwaggerParser::SourceBasedObject, nil]
     def [](key)
       value = source[key]
-      element_class.new(value) if value
+      build_element(value) if value
     end
 
     private
 
     # @note Override me
+    # @param [Object] value
     # @return [Class]
-    def element_class
+    def build_element(value)
       raise NotImplementedError
     end
   end
