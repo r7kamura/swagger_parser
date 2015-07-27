@@ -9,6 +9,15 @@ module SwaggerParser
     include SwaggerParser::Extendable
     include SwaggerParser::ExternalDocsAttributable
 
+    attr_reader :http_method
+
+    # @param [String] http_method
+    # @param [Object] source
+    def initialize(source, http_method:)
+      super(source)
+      @http_method = http_method
+    end
+
     # @return [Object]
     def consumes
       source["consumes"] || []

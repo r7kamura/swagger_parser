@@ -47,6 +47,14 @@ RSpec.describe SwaggerParser::Operation do
     it { is_expected.to be_nil }
   end
 
+  describe "#http_method" do
+    subject do
+      operation.http_method
+    end
+
+    it { is_expected.to be_a String }
+  end
+
   describe "#operation_id" do
     subject do
       operation.operation_id
