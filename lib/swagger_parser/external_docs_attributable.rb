@@ -4,8 +4,8 @@ module SwaggerParser
   module ExternalDocsAttributable
     # @return [SwaggerParser::ExternalDocumentation, nil]
     def external_docs
-      if source["external_docs"]
-        SwaggerParser::ExternalDocumentation.new(source["external_docs"])
+      if source["externalDocs"]
+        SwaggerParser::ExternalDocumentation.new(source["externalDocs"])
       end
     end
   end
