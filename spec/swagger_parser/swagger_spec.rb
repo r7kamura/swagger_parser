@@ -36,7 +36,7 @@ RSpec.describe SwaggerParser::Swagger do
       swagger.external_docs
     end
 
-    it { is_expected.to be_nil }
+    it { is_expected.to be_a SwaggerParser::ExternalDocumentation }
   end
 
   describe "#host" do

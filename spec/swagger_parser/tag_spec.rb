@@ -24,7 +24,7 @@ RSpec.describe SwaggerParser::Swagger do
       tag.external_docs
     end
 
-    it { is_expected.to be_nil }
+    it { is_expected.to be_a SwaggerParser::ExternalDocumentation }
   end
 
   describe "#name" do
